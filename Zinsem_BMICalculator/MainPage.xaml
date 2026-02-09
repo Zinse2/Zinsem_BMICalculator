@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Zinsem_BMICalculator.MainPage"
+    Title="BMI Calculator">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Label Text="BMI Calculator"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <!-- Gender selection cards -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+
+                <!-- Male Card -->
+                <Frame x:Name="MaleFrame"
+                       Grid.Column="0"
+                       CornerRadius="16"
+                       Padding="16"
+                       HasShadow="True"
+                       BorderColor="Transparent">
+
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Image Source="male.png" HeightRequest="120" />
+                        <Label Text="Male" FontSize="18" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaleTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Female Card -->
+                <Frame x:Name="FemaleFrame"
+                       Grid.Column="1"
+                       CornerRadius="16"
+                       Padding="16"
+                       HasShadow="True"
+                       BorderColor="Transparent">
+
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Image Source="female.png" HeightRequest="120" />
+                        <Label Text="Female" FontSize="18" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFemaleTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+            </Grid>
+
+            <!-- Height Card -->
+            <Frame CornerRadius="16" Padding="16" HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Height (inches)"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+
+                    <Slider x:Name="HeightSlider"
+                            Minimum="0"
+                            Maximum="100"
+                            Value="50"
+                            ValueChanged="OnHeightChanged" />
+
+                    <Label x:Name="HeightValueLabel"
+                           Text="50"
+                           FontSize="22"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Weight Card -->
+            <Frame CornerRadius="16" Padding="16" HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Weight (lbs)"
+                           FontSize="18"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
+
+                    <Slider x:Name="WeightSlider"
+                            Minimum="0"
+                            Maximum="300"
+                            Value="90"
+                            ValueChanged="OnWeightChanged" />
+
+                    <Label x:Name="WeightValueLabel"
+                           Text="90"
+                           FontSize="22"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Calculate button -->
+            <Button Text="Calculate your BMI"
+                    CornerRadius="18"
+                    HeightRequest="55"
+                    BackgroundColor="#0B1320"
+                    TextColor="White"
+                    FontSize="18"
+                    Clicked="OnCalculateClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
